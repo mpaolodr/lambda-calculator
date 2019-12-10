@@ -10,10 +10,9 @@ import { numbers } from '../../../data'
 
 //NUMBERS DATA FROM data.js
 
-const Numbers = () => {
+const Numbers = ({ updateFunction }) => {
   // STEP 2 - add the imported data to state
   const [numberState] = useState(numbers);
-  console.log(numberState);
 
   return (
     <div>
@@ -21,7 +20,11 @@ const Numbers = () => {
        component matching the name on the provided file. Pass
        it any props needed by the child component*/}
       {numberState.map(number => {
-        return <button value={number}>{number}</button>;
+        return (
+          <button onClick={updateFunction} key={number} value={number}>
+            {number}
+          </button>
+        );
       })}
     </div>
   );

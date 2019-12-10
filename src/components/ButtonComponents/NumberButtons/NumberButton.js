@@ -1,11 +1,11 @@
 import React from "react";
 import Numbers from "./Numbers";
 
-const NumberButton = () => {
+const NumberButton = ({ updateFunction }) => {
   return (
     <div>
       {/* Display a button element rendering the data being passed down from the parent container on props */}
-      <Numbers />
+      <Numbers updateFunction={updateFunction} />
     </div>
   );
 };

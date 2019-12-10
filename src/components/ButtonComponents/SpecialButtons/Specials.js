@@ -5,7 +5,7 @@ import { specials } from "../../../data.js";
 
 //Import your array data to from the provided data file
 
-const Specials = () => {
+const Specials = ({ updateFunction }) => {
   // STEP 2 - add the imported data to state
   const [specialsState] = useState(specials);
 
@@ -15,7 +15,11 @@ const Specials = () => {
        component matching the name on the provided file. Pass
        it any props needed by the child component*/}
       {specialsState.map(item => {
-        return <button>{item}</button>;
+        return (
+          <button onClick={updateFunction} key={item} value={item}>
+            {item}
+          </button>
+        );
       })}
     </div>
   );
