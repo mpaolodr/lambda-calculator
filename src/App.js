@@ -8,7 +8,7 @@ import SpecialButton from "./components/ButtonComponents/SpecialButtons/SpecialB
 import Display from "./components/DisplayComponents/Display.js";
 
 //STYLES
-import "./App.css";
+import "./App.scss";
 import "./index.css";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
@@ -27,8 +27,28 @@ function App() {
   const updateFunction = e => {
     if (e.target.value === "C") {
       setDisplay(0);
-    } else {
+    }
+
+    if (display === 0) {
       setDisplay(e.target.value);
+    }
+
+    if (display !== 0 && display !== "=") {
+      setDisplay(`${display}${e.target.value}`);
+    }
+
+    if (e.target.value === "=") {
+      setDisplay(eval(display));
+    }
+
+    if (e.target.value === "+/-") {
+      if (display !== 0) {
+        if ("-" + display === true) {
+          setDisplay("+" + display);
+        } else {
+          setDisplay("-" + display);
+        }
+      }
     }
   };
 
@@ -39,9 +59,22 @@ function App() {
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
         <Display>{display}</Display>
-        <SpecialButton updateFunction={e => updateFunction(e)} />
-        <NumberButton updateFunction={e => updateFunction(e)} />
-        <OperatorButton updateFunction={e => updateFunction(e)} />
+        <div className="charContainer">
+          <div className="specialContainer">
+            <SpecialButton
+              className="specialButtons"
+              updateFunction={e => updateFunction(e)}
+            />
+          </div>
+
+          <div className="numberContainer">
+            <NumberButton updateFunction={e => updateFunction(e)} />
+          </div>
+
+          <div className="operatorContainer">
+            <OperatorButton updateFunction={e => updateFunction(e)} />
+          </div>
+        </div>
       </div>
     </div>
   );
