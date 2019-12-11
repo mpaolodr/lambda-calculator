@@ -90,7 +90,7 @@ function App() {
       operator === "/" ||
       operator === "*"
     ) {
-      setDisplay(`${display}${operator}`);
+      setDisplay(`${display} ${operator} `);
     } else {
       setDisplay(eval(display));
     }
