@@ -83,9 +83,9 @@ const [numberState, setNumberState] = useState(numbers);
 
 **STEP 5 - (STRETCH)**
 
-- [ ] In each component, start designing things to match the design file
-- [ ] Style your project using any of the techniques from the module
-- [ ] Don't forget about className vs class on your JSX elements!!
+- [x] In each component, start designing things to match the design file
+- [x] Style your project using any of the techniques from the module
+- [x] Don't forget about className vs class on your JSX elements!!
 
 It's time to start thinking about functionality. Before getting into this, let's try and plan out all the moving pieces you'll need.
 
@@ -99,8 +99,8 @@ This is where you're JavaScript skills are really going to be stretched. Remembe
 
 ## _MVP Requirements:_
 
-- [ ] Get at least one set of buttons(numbers, operators, or special buttons) to reflect the design spec.
-- [ ] Use the state hook function to get the app to display some data.
+- [x] Get at least one set of buttons(numbers, operators, or special buttons) to reflect the design spec.
+- [x] Use the state hook function to get the app to display some data.
 
 **Here is your design spec:**
 
@@ -119,8 +119,8 @@ This is where you're JavaScript skills are really going to be stretched. Remembe
 
 Do not attempt stretch problems until MVP has been reached and a final commit has been made.
 
-- [ ] STEP 5 from above
-- [ ] Finish the logic so the calculator is fully functional. Feel free to change the array data, or lose it entirely, as you see fit.
-- [ ] Finish styling all of the buttons and get your calculator to closely resemble the given design spec.
-- [ ] Add some icons to improve the operator characters aesthetics. Research any icon/font library and implement it into your project.
-- [ ] Convert your CSS styling to use Sass/Scss
+- [x] STEP 5 from above
+- [x] Finish the logic so the calculator is fully functional. Feel free to change the array data, or lose it entirely, as you see fit.
+- [x] Finish styling all of the buttons and get your calculator to closely resemble the given design spec.
+- [x] Add some icons to improve the operator characters aesthetics. Research any icon/font library and implement it into your project.
+- [x] Convert your CSS styling to use Sass/Scss

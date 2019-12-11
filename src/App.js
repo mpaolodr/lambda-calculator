@@ -24,31 +24,75 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
   const [display, setDisplay] = useState(0);
 
-  const updateFunction = e => {
-    if (e.target.value === "C") {
-      setDisplay(0);
-    }
+  // const updateFunction = e => {
+  //   //Special
+  //   if (e.target.value === "C") {
+  //     setDisplay(0);
+  //   } else if (display !== 0 && e.target.value !== "=") {
+  //     setDisplay(`${display}${e.target.value}`);
+  //   }
+  //   if (e.target.value === "+/-") {
+  //     if (display > 0) {
+  //       setDisplay("-" + display);
+  //     } else if (display < 0) {
+  //       setDisplay(Math.abs(display));
+  //     }
+  //   }
+  //   if (e.target.value === "%") {
+  //     if (display !== 0) {
+  //       setDisplay(display / 100);
+  //     } else {
+  //       return;
+  //     }
+  //   }
 
-    if (display === 0) {
-      setDisplay(e.target.value);
-    }
+  //   if (e.target.value !== "C" && display === 0) {
+  //     setDisplay(e.target.value);
+  //   }
 
-    if (display !== 0 && display !== "=") {
-      setDisplay(`${display}${e.target.value}`);
-    }
+  //   if (e.target.value === "=") {
+  //     setDisplay(eval(display));
+  //   }
+  // };
 
-    if (e.target.value === "=") {
-      setDisplay(eval(display));
-    }
-
-    if (e.target.value === "+/-") {
+  //Handlers
+  //FOR SPECIAL CHARACTER
+  const specialChar = char => {
+    if (char === "C") {
       if (display !== 0) {
-        if ("-" + display === true) {
-          setDisplay("+" + display);
-        } else {
-          setDisplay("-" + display);
-        }
+        setDisplay(0);
+      } else {
+        return;
       }
+    } else if (char === "+/-") {
+      if (parseInt(display) > 0) {
+        setDisplay("-" + display);
+      } else {
+        setDisplay(Math.abs(parseInt(display)));
+      }
+    } else {
+      setDisplay(display / 100);
+    }
+  };
+
+  const numChar = num => {
+    if (display !== 0) {
+      setDisplay(`${display}${num}`);
+    } else {
+      setDisplay(num);
+    }
+  };
+
+  const operatorChar = operator => {
+    if (
+      operator === "+" ||
+      operator === "-" ||
+      operator === "/" ||
+      operator === "*"
+    ) {
+      setDisplay(`${display}${operator}`);
+    } else {
+      setDisplay(eval(display));
     }
   };
 
@@ -63,16 +107,18 @@ function App() {
           <div className="specialContainer">
             <SpecialButton
               className="specialButtons"
-              updateFunction={e => updateFunction(e)}
+              updateFunction={e => specialChar(e.target.value)}
             />
           </div>
 
           <div className="numberContainer">
-            <NumberButton updateFunction={e => updateFunction(e)} />
+            <NumberButton updateFunction={e => numChar(e.target.value)} />
           </div>
 
           <div className="operatorContainer">
-            <OperatorButton updateFunction={e => updateFunction(e)} />
+            <OperatorButton
+              updateFunction={e => operatorChar(e.target.value)}
+            />
           </div>
         </div>
       </div>

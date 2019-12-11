@@ -6,7 +6,7 @@ import { operators } from "../../../data.js";
 
 const Operators = ({ updateFunction }) => {
   // STEP 2 - add the imported data to state
-  const [operatorState] = useState(operators);
+  const [operatorState, setOperatorState] = useState(operators);
 
   return (
     <div className="operatorsButtons">
